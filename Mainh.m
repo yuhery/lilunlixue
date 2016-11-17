@@ -9,4 +9,4 @@ H=forH(position,topology,angel,n,order);
 %Çó½âx
 x=-inv(H)*force;
 disp(x);
-figure_(position,topology,x,angel,2*n-3);
+figure_(position,topology,x,angel,order,2*n-3);
