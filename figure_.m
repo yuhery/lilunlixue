@@ -1,4 +1,4 @@
-function []=figure_(x1,x2,x3,b)
+function []=figure_(x1,x2,x3,angel,b)
 
 position=x1;
 topology=x2;
@@ -12,6 +12,7 @@ figure();
 for i=1:1:b
     pot1=position(:,topology(1,i));
     pot2=position(:,topology(2,i));
-    fill([pot1(1),pot1(1),pot2(1),pot2(1)],[pot1(2),pot1(2)+0.1,pot2(2)+0.1,pot2(2)],interForce(i));
+    fill([pot1(1)+0.1*cos(angel(i)-pi/2),pot1(1)+0.1*cos(angel(i)+pi/2),pot2(1)+0.1*cos(angel(i)+pi/2),pot2(1)+0.1*cos(angel(i)-pi/2)],[pot1(2)+0.1*sin(angel(i)-pi/2),pot1(2)+0.1*sin(angel(i)+pi/2),pot2(2)+0.1*sin(angel(i)+pi/2),pot2(2)+0.1*sin(angel(i)-pi/2)],interForce(i));
     hold on;
 end
+axis equal;
