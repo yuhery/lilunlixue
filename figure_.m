@@ -16,3 +16,4 @@ for i=1:1:b
     hold on;
 end
 axis equal;
+colorbar();
