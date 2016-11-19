@@ -1,4 +1,4 @@
-function []=figure_(x1,x2,x3,angel,order,b,ratio)
+function []=figure_(x1,x2,x3,angel,order,b,ratio,force_1)
 
 position=x1;
 topology=x2;
@@ -25,6 +25,13 @@ arrow2=position(:,order(2));
 [arrow2_x,arrow2_y]=Arrows(arrow2(1),arrow2(2),ratio,0);
 fill(arrow2_x,arrow2_y,interForce(b+3));
 hold on;
+
+cars(position,order,ratio);
+for i=1:1:length(force_1(1,:))
+    [arrow3_x,arrow3_y]=Arrows(position(1,force_1(1,i)),position(2,force_1(1,i)),ratio,-pi/2+force_1(2,i));
+    fill(arrow3_x,arrow3_y,force_1(3,i));
+    hold on;
+end
 
 t=deg2rad(0:360);
 for i=1:1:(b+3)/2
